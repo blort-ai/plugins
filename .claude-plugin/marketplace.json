@@ -1,0 +1,15 @@
+{
+  "name": "blort",
+  "owner": {
+    "name": "Blort",
+    "url": "https://getblort.com"
+  },
+  "description": "Blort plugins for researching and writing short-form and long-form video content",
+  "plugins": [
+    {
+      "name": "blort",
+      "source": "./claude",
+      "description": "Analyze any video or link, find what's going viral, break down creators, and write scripts from your research"
+    }
+  ]
+}

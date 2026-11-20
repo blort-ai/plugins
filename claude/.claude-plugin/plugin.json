@@ -1,0 +1,16 @@
+{
+  "name": "blort",
+  "displayName": "Blort",
+  "version": "1.0.0",
+  "description": "Analyze any video or link, find what's going viral, break down creators, and write scripts from your research",
+  "author": {
+    "name": "Blort",
+    "url": "https://getblort.com"
+  },
+  "homepage": "https://getblort.com",
+  "repository": "https://github.com/blort-ai/plugins",
+  "icon": "./logo.png",
+  "supportUrl": "https://getblort.com/contact-us",
+  "privacyPolicyUrl": "https://getblort.com/privacy-policy",
+  "termsOfServiceUrl": "https://getblort.com/terms-conditions"
+}
