@@ -6,9 +6,11 @@ This plugin connects Claude to the Blort MCP server at https://api.getblort.com/
 
 - `analyze`: break down videos, posts, websites or PDFs: hook and its reusable formula, format, structure with transcript, visuals, and what to reuse.
 - `viral`: find what's going viral in a niche from Blort's viral library or a live TikTok, Instagram or YouTube search, and the patterns behind it.
-- `creator`: break down what a creator posts, what performs best, and what to borrow.
+- `creator`: break down a creator's audience and stats, what they post, which posts beat their average views, and what to borrow.
 - `script`: write a video script grounded in a Blort board or in videos that worked.
 - `start`: see what Blort can do and your recent boards.
+
+Research stays in the chat: the skills put videos on a Blort board only when you ask them to.
 
 It requires a Blort account; most tools need an active subscription.
 

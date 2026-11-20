@@ -14,7 +14,7 @@
       "interface": {
         "displayName": "Blort",
         "shortDescription": "Research and script short-form video",
-        "longDescription": "Blort analyzes any video, post, website or PDF, finds what's going viral on TikTok, Instagram and YouTube, breaks down creators, and writes scripts grounded in your research. Everything can be saved to a Blort board to come back to and chat with.",
+        "longDescription": "Blort analyzes any video, post, website or PDF, finds what's going viral on TikTok, Instagram and YouTube, breaks down creators, and writes scripts grounded in your research. Research can be saved to a Blort board to come back to and chat with.",
         "developerName": "Blort",
         "category": "Creativity",
         "capabilities": [
@@ -44,19 +44,19 @@
               "description": "Analyze a short video",
               "prompt": "Analyze this video and tell me why it worked: https://www.tiktok.com/@saraisnuts/video/7696265174440742166",
               "tools_triggered": "autodetect_sources",
-              "expected_behavior": "Processes the video with Blort and breaks down its hook (with a reusable formula), format, structure with transcript excerpts, visual layout and takeaways, using the video's real transcript and metrics."
+              "expected_behavior": "Processes the video with Blort without putting it on a board and breaks down its hook (with a reusable formula), format, structure with transcript excerpts, visual layout and takeaways, using the video's real transcript and metrics."
             },
             {
               "description": "Viral research in a niche",
               "prompt": "What's going viral in fitness right now?",
               "tools_triggered": "list_viral_content",
-              "expected_behavior": "Lists 3-5 patterns behind top fitness videos from Blort's viral library, each with a hook formula and 2-3 example videos with creator, link and metrics."
+              "expected_behavior": "Lists 3-5 patterns behind top fitness videos from Blort's viral library, ranked by outlier score where available, each with a hook formula and 2-3 example videos with creator, link and metrics. Reads already analyzed hits with get_sources and adds nothing to a board."
             },
             {
               "description": "Creator breakdown",
               "prompt": "Break down what @nocodealex posts on Instagram and what performs best.",
-              "tools_triggered": "search_profiles, add_profile_to_board",
-              "expected_behavior": "Finds the creator, adds their top videos to a Blort board, and summarizes their formats, hook types, best performers and what to borrow, linking the board."
+              "tools_triggered": "search_profiles, get_instagram_profile, autodetect_sources",
+              "expected_behavior": "Finds the creator, reads their profile stats and top posts, analyzes the best ones without putting them on a board, and summarizes their audience, formats, hook types, best performers and what to borrow. Offers to save the videos to a board at the end."
             },
             {
               "description": "Script from research",

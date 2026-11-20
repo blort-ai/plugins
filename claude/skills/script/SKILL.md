@@ -11,9 +11,9 @@ Take every fact, number and example you cite from what the Blort tools return or
 
 ## Gather the research
 Use what the user gives you, in this order:
-1. **A Blort board:** find it with `list_boards`, list its items with `list_sources_for_board`, and read the relevant ones with `get_sources`. Boards often hold the user's own past videos, notes and documents: use them for their voice, facts and offers.
-2. **Reference links:** process them with `autodetect_sources` (`analysisDepth: "full"` for short videos) and read what comes back. Analysis can take a few minutes; if it hasn't finished after about 5, write from what you have and say so.
-3. **Nothing given:** find strong examples with `list_viral_content`: call `list_viral_topics` and, if a topic fits, use its `topic_code` with `sort_by: "outlierScore"`; otherwise pass the topic as `query`. Keep `limit: 10` and set `platform` when the user named one. Keep the 3–5 hits with the most views. A hit with `sourceId` already has a full analysis you can read with `get_sources`.
+1. **A Blort board:** find it with `list_boards`, list its items with `list_sources_for_board`, and read the relevant ones with `get_sources` (their numeric board item ids as `ids`). Boards often hold the user's own past videos, notes and documents: use them for their voice, facts and offers.
+2. **Reference links:** process them with one `autodetect_sources` call (`analysisDepth: "full"` for short videos), without `boardId`, and read the `results`. For any in `pendingSourceIds`, call `get_sources` with those `sourceIds` and `wait: true`. If they haven't finished after about 5 minutes, write from what you have and say so.
+3. **Nothing given:** find strong examples in Blort's viral library with `list_viral_content`: call `list_viral_topics` and, if a topic fits, use its `topicCode` with `sort: "outlierScore"`; otherwise pass the topic as `query`. Keep `limit: 10` and set `platform` when the user named one. Keep the 3–5 strongest hits, by `outlierScore` when present, otherwise by views. Read the ones with a `sourceId` with one `get_sources` call `{ "sourceIds": [...] }`; their full analysis is already done. For the others, the hit's `text` (the start of its transcript or analysis) is usually enough to borrow a structure from.
 
 Base the script on that research: borrow structures and hook types that worked, not wording. Never copy another creator's lines.
 
