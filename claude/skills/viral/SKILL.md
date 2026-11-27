@@ -24,7 +24,7 @@ Finding videos adds nothing to a board. Put things on a board only if the user a
 Instagram often returns no views or shares for a post. When views are missing, rank by likes and comments instead, and say once that engagement rate isn't available for those posts.
 1. Pick the 5–10 strongest videos by `outlierScore` when present, otherwise by views relative to their age, and by engagement rate, (likes + comments + shares) / views.
 2. Read the ones with a `sourceId` with one `get_sources` call `{ "sourceIds": [...] }`. Their analysis is already done, so this is instant and spends nothing.
-3. Pass the links of the rest to `autodetect_sources` in one call, each with `analysisDepth: "full"`, and without `boardId`. Read the `results` that finished; for any in `pendingSourceIds`, call `get_sources` with those `sourceIds`; it waits up to 45 seconds for them. After about 5 minutes, work with what has finished and say how many are still processing.
+3. Pass the links of the rest to `analyze_videos_and_links` in one call, each with `analysisDepth: "full"`, and without `boardId`. Read the `results` that finished; for any in `pendingSourceIds`, call `get_sources` with those `sourceIds`; it waits up to 45 seconds for them. After about 5 minutes, work with what has finished and say how many are still processing.
 4. To compare thumbnails or carousel slides, use `get_sources` with one source id and `images: true`.
 
 ## Answer
@@ -36,4 +36,4 @@ Answer in the user's language:
 When the client can show an artifact or canvas, present this as a clean visual page with a card per video (its `thumbnailUrl`, creator, metrics, link). Lead with the patterns, then the videos that support them.
 
 ## Keep the research
-Offer once, at the end, to save the analyzed videos to a Blort board, where the user can come back to them and chat with them. If they say yes, use the board they name (find it with `list_boards`) or create one with `create_board`, then call `autodetect_sources` with the videos' links, `analysisDepth: "full"`, that `boardId` and the `sourceGroupId` of a group named after the niche, made first with `create_source_group`. Blort reuses the analyses it already has. Link the board as https://app.getblort.com/board/<boardId>.
+Offer once, at the end, to save the analyzed videos to a Blort board, where the user can come back to them and chat with them. If they say yes, use the board they name (find it with `list_boards`) or create one with `create_board`, then call `analyze_videos_and_links` with the videos' links, `analysisDepth: "full"`, that `boardId` and the `sourceGroupId` of a group named after the niche, made first with `create_source_group`. Blort reuses the analyses it already has. Link the board as https://app.getblort.com/board/<boardId>.

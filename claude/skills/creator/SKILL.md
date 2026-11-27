@@ -24,7 +24,7 @@ Nothing is added to a board by reading a profile.
 ## Analyze their best posts
 1. Pick the 8–10 posts at the top of the ranking, plus any recent post that stands out.
 2. Posts with a `sourceId` already have a full Blort analysis: read them all with one `get_sources` call `{ "sourceIds": [...] }`. This is instant and spends nothing.
-3. Pass the links of the rest to `autodetect_sources` in one call, each with `analysisDepth: "full"`. Leave out `boardId` unless the user asked to save to a board. Read the `results` that finished; for any in `pendingSourceIds`, call `get_sources` with those `sourceIds` (it waits up to 45 seconds), and repeat while some are still pending, for up to 10 minutes in total.
+3. Pass the links of the rest to `analyze_videos_and_links` in one call, each with `analysisDepth: "full"`. Leave out `boardId` unless the user asked to save to a board. Read the `results` that finished; for any in `pendingSourceIds`, call `get_sources` with those `sourceIds` (it waits up to 45 seconds), and repeat while some are still pending, for up to 10 minutes in total.
 4. If some videos are still processing at the end, work with the finished ones and say how many are pending.
 
 ## Answer
@@ -39,4 +39,4 @@ Answer in the user's language:
 When the client can show an artifact or canvas, present this as a clean visual page with the creator's top videos as cards (thumbnail, metrics, outlier score, link). To see thumbnails or carousel slides yourself, use `get_sources` with one source id and `images: true`.
 
 ## Keep the research
-Offer once, at the end, to save the creator's top videos to a Blort board, where the user can come back to them and chat with them. If they say yes, use the board they name (find it with `list_boards`) or create one with `create_board`, then call `autodetect_sources` with the same links, `analysisDepth: "full"`, that `boardId` and the `sourceGroupId` of a group named after the creator's handle, made first with `create_source_group`. Blort reuses the analyses it already has. Link the board as https://app.getblort.com/board/<boardId>.
+Offer once, at the end, to save the creator's top videos to a Blort board, where the user can come back to them and chat with them. If they say yes, use the board they name (find it with `list_boards`) or create one with `create_board`, then call `analyze_videos_and_links` with the same links, `analysisDepth: "full"`, that `boardId` and the `sourceGroupId` of a group named after the creator's handle, made first with `create_source_group`. Blort reuses the analyses it already has. Link the board as https://app.getblort.com/board/<boardId>.

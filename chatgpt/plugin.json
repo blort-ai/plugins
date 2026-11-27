@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "blort",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Analyze any video or link, find what's going viral, break down creators, and write scripts from your research",
   "author": {
     "name": "Blort",
@@ -43,7 +43,7 @@
             {
               "description": "Analyze a short video",
               "prompt": "Analyze this video and tell me why it worked: https://www.tiktok.com/@saraisnuts/video/7696265174440742166",
-              "tools_triggered": "autodetect_sources",
+              "tools_triggered": "analyze_videos_and_links",
               "expected_behavior": "Processes the video with Blort without putting it on a board and breaks down its hook (with a reusable formula), format, structure with transcript excerpts, visual layout and takeaways, using the video's real transcript and metrics."
             },
             {
@@ -55,7 +55,7 @@
             {
               "description": "Creator breakdown",
               "prompt": "Break down what @nocodealex posts on Instagram and what performs best.",
-              "tools_triggered": "search_profiles, get_instagram_profile, autodetect_sources",
+              "tools_triggered": "search_profiles, get_instagram_profile, analyze_videos_and_links",
               "expected_behavior": "Finds the creator, reads their profile stats and top posts, analyzes the best ones without putting them on a board, and summarizes their audience, formats, hook types, best performers and what to borrow. Offers to save the videos to a board at the end."
             },
             {
